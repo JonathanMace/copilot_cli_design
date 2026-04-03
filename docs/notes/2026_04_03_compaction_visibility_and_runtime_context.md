@@ -204,14 +204,32 @@ task spawning, and MCP tools were all removed. Only `view`, `skill`, and
  ISO 8601 timestamp injected with each user message. Provides the agent with 
 current wall-clock time.
  
- ### 17. `<reminder>` — SQL tables
- 
- **Source:** Copilot CLI runtime (dynamic, per-session)
- **Scoping:** All agents
- 
- Reports the current state of the session's SQL database (e.g., `No tables 
+### 17. `<reminder>` — SQL tables
+
+**Source:** Copilot CLI runtime (dynamic, per-session)
+**Scoping:** All agents
+
+Reports the current state of the session's SQL database (e.g., `No tables 
 currently exist.` or a list of table schemas). Injected as a reminder to 
 maintain awareness of tracking state.
+
+Observed forms include:
+
+```xml
+<reminder>
+<sql_tables>No tables currently exist. Default tables (todos, todo_deps) will be created automatically when you first use the SQL tool.</sql_tables>
+</reminder>
+```
+
+and, after SQL initialization:
+
+```xml
+<reminder>
+<sql_tables>Available tables: todos, todo_deps</sql_tables>
+</reminder>
+```
+
+This block is therefore not just a generic reminder tag; it is a concrete prompt-time summary of session SQL state.
  
  ## Layering Behavior
  
@@ -336,11 +354,15 @@ large?
 
   All of that appears before the current user message.
 
-  5. Current user message
+5. Current user message
 
-  Your current message appears after the prior transcript. Inside this message,
-  the order is exactly:
+Your current message appears after the prior transcript. Inside this message,
+the order is exactly:
 
-   1. <agent_instructions>
-   2. <current_datetime>
-   3. your plain-text question:
+1. <agent_instructions>
+2. <current_datetime>
+3. your plain-text question
+4. `<reminder>`
+5. inside `<reminder>`, `<sql_tables>...`
+
+So the reminder is part of the current user-message payload, not a top-level system or developer block.
