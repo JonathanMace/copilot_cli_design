@@ -3,7 +3,8 @@
 Design notes and research on GitHub Copilot CLI — exploring agent architecture, subagent communication, context management, and workflow patterns.
 
 ## Contents
-
+ 
+- `.github/agents/` — Custom agent profiles for manual invocation and testing
 - `docs/notes/` — Dated design notes and research documents
 
 ## Getting Started
