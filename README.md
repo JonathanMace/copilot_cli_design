@@ -4,10 +4,10 @@ Design notes and research on GitHub Copilot CLI — exploring agent architecture
 
 ## Contents
 
-- `notes/` — Dated design notes and research documents
+- `docs/notes/` — Dated design notes and research documents
 
 ## Getting Started
 
-Browse the `notes/` directory for design documents. Each file covers a specific aspect of Copilot CLI's architecture and behavior.
+Browse the `docs/notes/` directory for design documents. Each file covers a specific aspect of Copilot CLI's architecture and behavior.
 
 This repository is managed with [Copilot CLI](https://docs.github.com/en/copilot) and the [skillful](https://github.com/JonathanMace/skillful) plugin.
