@@ -1,3 +1,9 @@
+---
+name: Subagent Context and Communication
+description: How subagents share context, communicate results, and manage the practical constraints of delegated work.
+copilot_version: 1.0.17
+---
+
 # Copilot CLI Subagent Context and Communication
 
 How subagents in GitHub Copilot CLI share context, communicate results, and manage the practical constraints of delegated work.

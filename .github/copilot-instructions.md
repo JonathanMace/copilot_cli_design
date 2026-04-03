@@ -34,6 +34,20 @@ This rule applies recursively — include it in subagent prompts so they also sp
 
 Always keep the README up to date. When creating new reports, documents, or significant artifacts, check whether the README needs to be updated to reflect the changes.
 
+## Design Notes
+
+Notes on Copilot CLI features and behavior go in `docs/notes/{YYYY_MM_DD}_{title}.md`.
+
+Every note must begin with YAML frontmatter:
+
+```yaml
+---
+name: Human-readable title
+description: One-sentence summary of the note's content
+copilot_version: 1.0.17   # Copilot CLI version used when writing the note
+---
+```
+
 ## Anti-Patterns
 
 <!-- Add anti-patterns here as you discover them. Include brief context so future agents understand the rationale. -->
